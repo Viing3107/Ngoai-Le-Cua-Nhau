@@ -1,161 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const getOffset1 = (element) => {
-        const rect = element.getBoundingClientRect();
-        return {
-            x: rect.left + window.scrollX,
-            y: rect.top + window.scrollY + rect.height / 2,
-        };
-    };
+function RanInt(l, r) {
+    return Math.floor(Math.random() * (r - l + 1.25)) + l;
+}
 
-    const getOffset2 = (element) => {
-        const rect = element.getBoundingClientRect();
-        return {
-            x: rect.left + window.scrollX + rect.width,
-            y: rect.top + window.scrollY + rect.height / 2,
-        };
-    };
-    
-    const drawLine = (x1, y1, x2, y2, svg) => {
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", x1);
-        line.setAttribute("y1", y1);
-        line.setAttribute("x2", x2);
-        line.setAttribute("y2", y2);
-        line.setAttribute("stroke", "black");
-        line.setAttribute("stroke-width", "2");
-        svg.appendChild(line);
-    };
-    let svg, topicLink, subtopicLinks, topicPos, subtopicPos;
-    
-    svg = document.querySelector(".dinhnghiacoban-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".dinhnghiacoban-topic");
-    subtopicLinks = document.querySelectorAll(".dinhnghiacoban-subtopic a");
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
+// gene background
+const background = document.querySelector('.background');
+const musicplayer = document.createElement('img');
+musicplayer.src = './img/musicplayer2.png';
+musicplayer.className = 'musicplayer musicplayer2';
+musicplayer.style.height = '250px';
 
-    svg = document.querySelector(".bruteforce-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".bruteforce-topic");
-    subtopicLinks = document.querySelectorAll(".bruteforce-subtopic a");
-    topicPos = getOffset2(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset1(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
+const n = 20;
+for (let i = 0; i < n; i++) {
+    let musicplayerClone = musicplayer.cloneNode();
+    musicplayerClone.style.top = RanInt(-30, 100) + '%';
+    musicplayerClone.style.left = RanInt(-30, 100) + '%';
+    musicplayerClone.style.rotate = RanInt(-180, 180) + 'deg';
+    background.appendChild(musicplayerClone);
+}
 
-    svg = document.querySelector(".array-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".array-topic");
-    subtopicLinks = document.querySelectorAll(".array-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
+// gene lyrics
 
-    svg = document.querySelector(".sort-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".sapxep-topic");
-    subtopicLinks = document.querySelectorAll(".sort-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset2(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset1(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
+const lyrics = [
+    ["nhìn em bước đi rời xa", 1.25],
+    ["anh lại loay hoay, vẫn ngồi xoay", 1.25],
+    ["anh lại lấy bút và giấy", 0.75],
+    ["lại viết thêm mấy lời ca", 1.25],
+    ["anh cũng chỉ muốn em ở đây", 0.75],
+    ["anh đâu muốn phải nhìn", 0.75],
+    ["một người nữa bước đi qua đời ta", 1.25],
+    ["lạc trôi theo làn mây", 1],
+    ["anh cảm thấy lúc này đây", 0.75],
+    ["anh chỉ muốn được quay ngược hết thời gian", 1.75],
+    ["quay ngược hết thời gian", 1.5],
+    ["anh sẽ không một lời than", 1.75],
+    ["nhà anh cần một người sang", 0.75],
+    ["dể anh hôn vào trán", 0.75],
+    ["khi tỉnh dậy mỗi buổi sáng", 1.75],
+    ["mặc kệ lời bàn tán", 0.75],
+    ["và chẳng cần phải chạm trán", 0.75],
+    ["vì thật sự là chẳng đáng", 1.75],
+    ["chẳng cần nhà hạng sang", 0.75],
+    ["mà chỉ cần là ngồi ăn", 0.75],
+    ["là anh ăn với cả nàng", 1.75],
+    ["♬♬♬♬♬♬♬♬♬♬♬♬♬♬", 5]
+]
 
-    svg = document.querySelector(".search-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".timkiem-topic");
-    subtopicLinks = document.querySelectorAll(".search-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
+const container = document.querySelector('.container');
 
-    svg = document.querySelector(".sohoc-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".sohoc-topic");
-    subtopicLinks = document.querySelectorAll(".sohoc-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset2(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset1(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    svg = document.querySelector(".container-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".container-topic");
-    subtopicLinks = document.querySelectorAll(".container-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    svg = document.querySelector(".graph-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".dothi-topic");
-    subtopicLinks = document.querySelectorAll(".graph-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset2(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset1(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    svg = document.querySelector(".datastructure-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".cautrucdulieu-topic");
-    subtopicLinks = document.querySelectorAll(".datastructure-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    svg = document.querySelector(".dp-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".quyhoachdong-topic");
-    subtopicLinks = document.querySelectorAll(".dp-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset2(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset1(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    svg = document.querySelector(".tree-edge");
-    svg.setAttribute("width", document.documentElement.scrollWidth);
-    svg.setAttribute("height", document.documentElement.scrollHeight);
-    topicLink = document.querySelector(".cay-topic");
-    subtopicLinks = document.querySelectorAll(".tree-subtopic a");
-    console.log(subtopicLinks);
-    topicPos = getOffset1(topicLink);
-    subtopicLinks.forEach((link) => {
-        subtopicPos = getOffset2(link);
-        drawLine(topicPos.x, topicPos.y, subtopicPos.x, subtopicPos.y, svg);
-    });
-
-    
-});
+let delay = 0;
+for (let index = 0; index < lyrics.length; index++) {
+    const lyric = document.createElement('div');
+    lyric.className = 'container-sentence';
+    lyric.innerText = lyrics[index][0];
+    container.appendChild(lyric);
+    lyric.style.animation = `fadeIn ${lyrics[index][1]}s ${delay}s both`;
+    delay += lyrics[index][1];
+}

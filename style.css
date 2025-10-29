@@ -1,15 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Concert+One&family=Denk+One&family=Fredoka:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Patrick+Hand&family=Poppins:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&family=Spline+Sans:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Concert+One&family=Fredoka:wght@300..700&family=Jersey+15&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Patrick+Hand&family=Poppins:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
 
-:root {
-    --margin: 100px;
-    --color: yellow;
-    --color2: rgb(0, 81, 255);
-    --color3: #ffe599;
+@font-face {
+    font-family: "Suahbi Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Font_by_suahbi-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Suahbi Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Suaserif-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Suahbi Capslock";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Vividlyviethoa-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Suahbi Caligraphy";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/suahocbai1.otf) format('opentype');
+}
+
+@font-face {
+    font-family: Hogfish;
+    src: url(./fonts/DFVN\ HOGFISH.OTF) format('opentype');
+}
+
+@font-face {
+    font-family: HeadingNow-31;
+    src: url(./fonts/HeadingNow-31Thin.otf) format('opentype');
 }
 
 * {
     box-sizing: border-box;
     user-select: none;
+    text-decoration: none;
 }
 
 html {
@@ -17,116 +49,83 @@ html {
 }
 
 body {
-    margin: 28px 50px 10px;
-    overflow-X: hidden;
-}
-
-.topic, .div {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.topic a {
-    width: 180px;
-    height: 50px;
-    margin: var(--margin);
-    font-size: 13px;
-    font-family: Jetbrains Mono;
-    font-weight: 500;
-    background-color: yellow;
-    color: black;
-    border-radius: 5px;
-    border: 2px solid;
-    display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(26, 26, 26);
 }
 
-.edge {
-    width: calc(2 * var(--margin));
-    height: 2px;
-    background-color: rgb(0, 81, 255);
-    transform: rotate(90deg);
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.subtopic {
-    height: 50px;
-    width: 180px;
+.musicplayer {
     position: absolute;
+    filter: drop-shadow(0 0 20px rgb(0, 0, 0));
+    border-radius: 10px;
 }
 
-.subtopic a {
-    width: 100%;
-    height: 100%;
-    margin: 5px;
-    font-family: Balsamiq Sans;
-    font-size: 1.3rem;
-    text-decoration: none;
-    font-weight: 500;
-    background-color: var(--color3);
-    border-radius: 5px;
-    border: 2px solid black;
-    color: black;
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    z-index: 3;
 }
 
-.dinhnghiacoban-subtopic {
-    left: 250px;
-    top: 50px;
+.container .container-sentence {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    font-family: "Suahbi Caligraphy", "Suahbi Regular";
+    font-size: 16rem;
+    font-weight: 1000;
+    /* background: linear-gradient(45deg, white, rgb(145, 145, 145), rgb(255, 0, 0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; */
+    color: lightgrey;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px black, 0 0 20px white;
+    line-height: 14rem;
+    letter-spacing: 10px;
 }
 
-.bruteforce-subtopic {
-    left: 850px;
-    top: 350px;
-}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* scale: 1.1; */
+    }
+    
+    15% {
+        opacity: 1;
+    }
 
-.array-subtopic {
-    left: 250px;
-    top: 600px;
-}
-
-.sort-subtopic {
-    left: 850px;
-    top: 750px;
-}
-
-.search-subtopic {
-    left: 250px;
-    top: 1100px;
-}
-
-.sohoc-subtopic {
-    left: 850px;
-    top: 1580px;
-}
-
-.container-subtopic {
-    left: 250px;
-    top: 2080px;
-}
-
-.graph-subtopic {
-    left: 850px;
-    top: 2340px;
-}
-
-.datastructure-subtopic {
-    left: 250px;
-    top: 2450px;
-}
-
-.dp-subtopic {
-    left: 850px;
-    top: 2840px;
-}
-
-.tree-subtopic {
-    left: 250px;
-    top: 3050px;
+    30% {
+        /* scale: 1; */
+    }
+    
+    85% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+        /* scale: 1; */
+    }
 }
