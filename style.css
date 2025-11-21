@@ -61,16 +61,28 @@ body {
 }
 
 .background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    transition: all 10s;
+}
+
+.background .fa-heart {
+    position: absolute;
+    font-size: 20rem;
+    color: rgb(158, 46, 72);
 }
 
 .musicplayer {
     position: absolute;
     filter: drop-shadow(0 0 20px rgb(0, 0, 0));
     border-radius: 10px;
+    will-change: transform;
+    pointer-events: none;
 }
 
 .container {
@@ -84,40 +96,34 @@ body {
 }
 
 .container .container-sentence {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    text-align: center;
+    flex-wrap: wrap;
     text-transform: uppercase;
     position: absolute;
     font-family: "Suahbi Caligraphy", "Suahbi Regular";
-    font-size: 16rem;
+    font-size: 26rem;
     font-weight: 1000;
-    /* background: linear-gradient(45deg, white, rgb(145, 145, 145), rgb(255, 0, 0));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent; */
     color: lightgrey;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 0 0 10px black, 0 0 20px white;
-    line-height: 14rem;
-    letter-spacing: 10px;
+    text-shadow: 0 0 10px black, 0 0 20px lightgrey, 0 0 30px lightgrey;
+    line-height: 19rem;
+    letter-spacing: 5px;
+}
+
+.container-sentence .word {
+    display: inline-block;
+    margin: 0 1rem;
+    white-space: nowrap;
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        /* scale: 1.1; */
     }
     
-    15% {
+    10% {
         opacity: 1;
-    }
-
-    30% {
-        /* scale: 1; */
     }
     
     85% {
@@ -126,6 +132,49 @@ body {
     
     100% {
         opacity: 0;
-        /* scale: 1; */
+    }
+}
+
+@keyframes zoom {
+    0% {
+        scale: 0.9;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes zoomHeart {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 10;
+    }
+}
+
+@keyframes gentle-shake {
+  0% { transform: translateX(0) translateY(0); }
+  10% { transform: translateX(2px) translateY(-1px);}
+  20% { transform: translateX(-3px) translateY(2px); }
+  30% { transform: translateX(-2px) translateY(1px); }
+  40% { transform: translateX(4px) translateY(-3px); }
+  50% { transform: translateX(3px) translateY(-2px); }
+  60% { transform: translateX(-2px) translateY(1px); }
+  70% { transform: translateX(-1px) translateY(0); }
+  80% { transform: translateX(3px) translateY(2px); }
+  90% { transform: translateX(4px) translateY(3px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes pink-color {
+    0% {
+        color: lightgrey;
+    }
+
+    100% {
+        color: lightpink;
     }
 }
