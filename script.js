@@ -51,7 +51,7 @@ const heart = document.createElement('i')
 heart.className = 'fa-solid fa-heart';
 const color = [`lightpink`, `rgb(158, 46, 72)`, `rgba(122, 42, 54, 1)`];
 
-for (let i = 0; i <= 10; i++) {
+for (let i = 0; i <= 17; i++) {
     let heartClone = heart.cloneNode();
     heartClone.style.color = color[i % 3];
     heartClone.style.animation = `zoomHeart 10s ${2 * i}s both`;
@@ -69,9 +69,21 @@ const lyrics = [
     ["mây trôi ngắm đôi mình...", 1.75],
     ["lại tị...", 1.25],
     ["cho xem", 1.5],
-    ["nhẹ xóa đi những vết thương...", 1.75],
+    ["nhẹ xoa đi những vết thương...", 1.75],
     ["mà đời...", 1.25],
     ["trao em", 1.5],
+    ["khó lắm em tình duyên", 1.5],
+    ["đừng mờ đừng sợ", 1.25],
+    ["vì chúng ta", 1.65],
+    ["đừng giấu đi nỗi niềm riêng", 1.75],
+    ["không lại lỡ mất", 1.25],
+    ["một đóa hoa", 1.65],
+    ["tiếng yêu trao đậm sâu", 1.75],
+    ["từng nhịp thật chậm", 1.25],
+    ["rồi nóng lên", 1.65],
+    ["khoảnh khắc ấy như thần tiên", 1.75],
+    ["dịu dàng, tuyệt trần", 1.25],
+    ["vì giống em", 1.65],
     ["♬♬♬♬♬♬♬♬♬♬♬♬♬♬", 5]
 ]
 

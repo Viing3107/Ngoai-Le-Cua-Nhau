@@ -38,6 +38,16 @@
     src: url(./fonts/HeadingNow-31Thin.otf) format('opentype');
 }
 
+@font-face {
+    font-family: HeadingNow-33;
+    src: url(./fonts/HeadingNow-33Book.otf) format(opentype);
+}
+
+@font-face {
+    font-family: Pecita;
+    src: url(./fonts/Pecita.otf) format(opentype);
+}
+
 * {
     box-sizing: border-box;
     user-select: none;
@@ -57,7 +67,7 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
-    background-color: rgb(26, 26, 26);
+    background-color: antiquewhite;
 }
 
 .background {
@@ -102,7 +112,7 @@ body {
     flex-wrap: wrap;
     text-transform: uppercase;
     position: absolute;
-    font-family: "Suahbi Caligraphy", "Suahbi Regular";
+    font-family: "Suahbi Caligraphy", "Suahbi Regular", Pecita;
     font-size: 26rem;
     font-weight: 1000;
     color: lightgrey;
